@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-09-04T17:23:01-06:00",
+  "id": "laboratorio-1-fdp-0222",
+  "duration": 121,
+  "title": "Fundamentos de Programación: Laboratorio 1",
+  "summary": "Primera práctica de laboratorio FDP",
+  "source": ".\\markdowns\\labo1markdown.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "c"
+  ],
+  "tags": [
+    "iguide",
+    "visualstudiocode",
+    "workshop"
+  ],
+  "feedback": "A link where users can go to provide feedback (e.g. the git repo or issue page)",
+  "url": "laboratorio-1-fdp-0222"
+}

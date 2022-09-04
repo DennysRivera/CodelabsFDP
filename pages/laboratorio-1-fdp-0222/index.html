@@ -1,0 +1,358 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Fundamentos de Programación: Laboratorio 1</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="laboratorio-1-fdp-0222"
+                  title="Fundamentos de Programación: Laboratorio 1"
+                  environment="web"
+                  feedback-link="A link where users can go to provide feedback (e.g. the git repo or issue page)">
+    
+      <google-codelab-step label="Introducción" duration="2">
+        <p>En esta guía se describen los pasos para instalar el software que será utilizado en la materia, para editar, compilar y ejecutar los programas de computadora que serán elaborados en clase, en las sesiones de Laboratorio, durante los exámenes y en las tareas. El lenguaje a utilizar es C/C++ y el entorno de desarrollo de programas es el Visual Studio Code. Ambos son gratuitos y se encuentran en servidores del Internet. Para tenerlos listos en sus computadoras se realizarán los siguientes pasos:</p>
+<ul>
+<li>Descarga compilador de C/C++, instalación de dicho compilador y configuración de una variable de entorno del sistema operativo.</li>
+<li>Descarga de Visual Studio Code, instalación de dicho entorno de desarrollo y configuración de algunas facilidades.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Descargando el compilador" duration="3">
+        <p>Desde su navegador de Internet acceda al sitio <a href="https://sourceforge.net/projects/mingw/files" target="_blank">https://sourceforge.net/projects/mingw/files</a>. Aparecerá una página similar a la siguiente:</p>
+<p class="image-container"><img alt="sourceforge-download-link" src="img\\efeaee7ef2f22116.jpg"></p>
+<p>Pulse el botón en el que se lee <strong><em>Downolad Latest Version</em></strong>. Esto iniciará el proceso de descarga del archivo ejecutable <strong><em>mingw-get-setup.exe</em></strong> (o similar).</p>
+<p>Este ejecutable descargará e instalará el compilador de C/C++.</p>
+<p>Diríjase a la carpeta donde se ha descargado, muy probablemente es la carpeta de descargas de Windows. Verá algo similar a lo que se muestra en la siguiente figura:</p>
+<p class="image-container"><img alt="archivo-descargado" src="img\\c2453d241e2919f6.jpg"></p>
+<p>En este momento habrá terminado el proceso de descarga del compilador de C/C++.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Instalando de compilador de C/C&#43;&#43; en su computadora" duration="10">
+        <p>Dé doble clic sobre el archivo recién descargado para iniciar su ejecución. Espere unos momentos mientras se realiza la descarga y se abre la ventana del proceso de instalación. Se verá similar a la siguiente:</p>
+<p class="image-container"><img alt="instalando-mingw" src="img\\e227875e58300ccb.jpg"></p>
+<p>Cuando se abra el instalador tal vez tenga que pulsar algún par de botones para llegar a esta ventana en el proceso de instalación (cuando se le solicita la carpeta destino, elija la que se le sugiere). Pero, una vez ha llegado a esta ventana, elija instalar los paquetes <strong><em>mingw32-gcc-g++</em></strong> y <strong><em>msys-base</em></strong>. Luego pulse la opción de menú <strong><em>Installation</em></strong> que se encuentra arriba y a la izquierda de esta ventana y luego seleccione la opción <strong><em>Apply Changes</em></strong>. El proceso de instalación del compilador de C/C++ dará inicio, verá en una nueva ventana la lista de herramientas que se van instalando. Espere hasta que este proceso termine.</p>
+<p>Cuando termine el proceso de instalación verá un mensaje indicando que este ha sido exitoso <strong><em>All changes were applied successfully; you may now close this dialogue</em></strong>.</p>
+<p class="image-container"><img alt="mensaje-instalacion-finalizada" src="img\\cde9c82f32ddf719.jpg"></p>
+<p>Pulse el botón <strong><em>Close</em></strong> y luego cierre la ventana de instalación.</p>
+<p>El proceso de instalación de C/C++ habrá finalizado. Puede verificarlo revisando el contenido del disco duro con ayuda del explorador de archivos. Verá la carpeta <strong><em>MinGW</em></strong> en su disco y las sub carpetas que están detrás de ella.</p>
+<p class="image-container"><img alt="comprobando-instalacion-mingw" src="img\\9ef7ebc71a9a5c72.jpg"></p>
+<p>En este momento habrá terminado el proceso de instalación del compilador de C/C++.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Configurando una variable de entorno del sistema operativo Windows" duration="6">
+        <p>En su Explorador de Archivos pulse la carpeta <strong><em>bin</em></strong> que se encuentra detrás de la carpeta <strong><em>MinGW</em></strong>. En la parte superior del Explorador de Archivos verá una barra donde aparece el texto <strong><em>MinGW &gt; bin</em></strong>. Con el puntero del ratón señale esta barra y dé clic derecho. Aparecerá un menú contextual. Pulse la opción <strong><em>Copiar dirección como texto</em></strong> de este menú, tal y como se ve en la siguiente figura:</p>
+<p class="image-container"><img alt="copiando-direccion-instalacion-mingw" src="img\\95aabb67c8b27f50.jpg"></p>
+<p>Ahora va a dirigirse a la ventana que le permite la configuración de la variable de entorno <strong><em>Path</em></strong>, del sistema operativo Windows. Para ello debe abrir la ventana de <strong><em>Propiedades del sistema</em></strong>. Si tiene Windows 10 escriba en la parte inferior <strong><em>variables de entorno</em></strong>, tal y como se muestra en la siguiente figura:</p>
+<p class="image-container"><img alt="buscando-variables-entorno" src="img\\35eef63696b08dc9.jpg"></p>
+<p>Se abrirá la ventana de edición de variables de entorno del sistema operativo:</p>
+<p class="image-container"><img alt="ventana-de-propiedades-del-sistema" src="img\\86e7f53fcc33767f.jpg"></p>
+<p>En la pestaña de <strong><em>Opciones avanzadas</em></strong> pulse el botón <strong><em>Variable de entorno</em></strong> que se encuentra hasta abajo. Aparecerá una ventana como la siguiente:</p>
+<p class="image-container"><img alt="ventana-variables-de-entorno" src="img\\a8a21527c6fc5bda.jpg"></p>
+<p>Dé clic sobre la variable <strong><em>Path</em></strong> que está en la sección de <strong><em>Variables del sistema</em></strong> (parte baja de la ventana) y luego pulse el botón <strong><em>Editar</em></strong>. Aparecerá una ventana que le permitirá editar la variable de entorno, como se muestra en la siguiente figura:</p>
+<p class="image-container"><img alt="modificando-variables-de-entorno" src="img\\d751f66f57e1192e.jpg"></p>
+<p>En esta ventana pulse el botón <strong><em>Nuevo</em></strong>. Se abrirá un espacio abajo y luego colóquese en ese espacio y pegue la ruta que copió como texto, tal y como se ve en la figura.</p>
+<p>Pulse <strong><em>Aceptar</em></strong> para cerrar esta ventana y luego pulse <strong><em>Aceptar</em></strong> para cerrar la ventana de <strong><em>Variables de entorno</em></strong>.</p>
+<p>En este momento habrá terminado la configuración de la variable de entorno <strong><em>Path</em></strong>.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Adquisición y preparación de Visual Studio Code" duration="5">
+        <h2 is-upgraded>Descargando el instalador</h2>
+<p>En su navegador de Internet escriba <strong><em>Visual Studio Code</em></strong> para realizar la búsqueda de este entorno de programación. Aparecerá algo similar a lo que se muestra en la siguiente figura:</p>
+<p class="image-container"><img alt="buscando-vsc" src="img\\c180a47937dd4f8.jpg"></p>
+<p>Elija el enlace que dice <strong><em>Download</em></strong>. Aparecerá una página con diferentes opciones de descarga, como se muestra en la siguiente figura:</p>
+<p class="image-container"><img alt="descargando-vsc" src="img\\60abeed5bf2801b3.jpg"></p>
+<p>Elija descargar	para su	<strong><em>Windows</em></strong>. Se iniciará el proceso de descarga del archivo ejecutable <strong><em>VSCodeUserSetup-x64-1.48.2.exe</em></strong> (o similar).</p>
+<p>Cuando haya terminado el proceso de descarga del instalador abra, desde el Explorador de Archivos, la carpeta de descargas de su computadora, verá algo similar a la siguiente figura:</p>
+<p class="image-container"><img alt="confirmando-descarga-vsc" src="img\\964dc465f0f2f84c.jpg"></p>
+<p>En este momento habrá terminado el proceso de descarga del instalador de Visual Studio Code.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Instalación de Visual Studio Code" duration="5">
+        <p><strong><em>Acepto el acuerdo</em></strong> y luego pulse el botón <strong><em>Siguiente</em></strong>.</p>
+<p class="image-container"><img alt="comenzando-instalacion-vsc" src="img\\77f78b65b2b17837.jpg"></p>
+<p>Se le pedirá la ruta de instalación en su máquina. A partir de aquí solo pulse la opción <strong><em>Siguiente</em></strong> cuando aparezca.</p>
+<p>Pulse el botón <strong><em>Siguiente</em></strong> para aceptar la ruta de instalación sugerida.</p>
+<p>Se le pedirá el nombre de la carpeta del Menú Inicio. Pulse el botón <strong><em>Siguiente</em></strong> para aceptar la opción sugerida.</p>
+<p>Se le pedirá si quiere que aparezca un botón de acceso directo al Visual Studio Code en el Escritorio de su computadora. Elija esta opción y pulse de nuevo el botón <strong><em>Siguiente</em></strong>.</p>
+<p>Finalmente, pulse el botón <strong><em>Instalar</em></strong>. El proceso de instalación comenzará y cuando termine pulse el botón <strong><em>Finalizar</em></strong>.</p>
+<p>Se abrirá la ventana de Visual Studio Code. Si no aparece, entonces dé doble clic en el botón de acceso directo que está en el escritorio o búsquelo en el menú Inicio de su sistema operativo.</p>
+<p class="image-container"><img alt="abriendo-vsc" src="img\\c78c3b17f7305ab4.jpg"></p>
+<p>Verá abrirse la ventana del Visual Studio Code, como se muestra en la siguiente figura.</p>
+<p class="image-container"><img alt="vsc-abierto" src="img\\e19d2d9dfd6f3a1c.jpg"></p>
+<p>En este momento habrá terminado el proceso de instalación de Visual Studio Code.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Configuración de algunas facilidades del entorno de Visual Studio Code" duration="10">
+        <p>Realizaremos cuatro configuraciones dentro del entorno de Visual Studio Code. Las primeras tres de ellas tienen el mismo proceso de configuración.</p>
+<p>Cierre la pestaña <strong><em>Welcome</em></strong> pulsando la X. Luego pulse el botón:</p>
+<p class="image-container"><img alt="boton-extensiones-vsc" src="img\\deb753c4ffc8ae6a.jpg"></p>
+<p>Este botón se encuentra en una barra lateral ubicada a la izquierda de la ventana de Visual Studio Code. Nos ayuda a instalar Extensiones que facilitan el trabajo en el entorno.</p>
+<p>Aparecerá la siguiente ventana:</p>
+<p class="image-container"><img alt="pestana-extensiones-vsc" src="img\\5efdaea36fac88c8.jpg"></p>
+<p>Puede ver arriba la etiqueta <strong><em>Extensions</em></strong> y una caja de búsqueda de extensiones inmediatamente abajo de esta etiqueta.</p>
+<p>En esta caja de búsqueda digite <strong><em>Code Runner</em></strong> y aparecerá lo siguiente:</p>
+<p class="image-container"><img alt="buscando-code-runner" src="img\\e9294b48e5ae86df.jpg"></p>
+<p>Pulse el botón <strong><em>Install</em></strong> de esta extensión para hacer que empiece su proceso de instalación. Cuando finalice, este botón se habrá cambiado por un pequeño engranaje, como puede ver en la siguiente figura:</p>
+<p class="image-container"><img alt="code-runner-instalado" src="img\\bf8f7e21559c8bf6.jpg"></p>
+<p>Esta extensión coloca el botón de ejecución de programas arriba a la derecha de la ventana del Visual Studio Code. Es similar a un botón de play. Cuando escriba su primer programa podrá pulsar este botón para que su programa se ejecute. Tiene el siguiente aspecto:</p>
+<p class="image-container"><img alt="boton-ejecucion" src="img\\50bd902e3a707652.jpg"></p>
+<p>En la caja de búsqueda digite ahora <strong><em>C/C++ Compile Run</em></strong>. Aparecerá debajo, como se muestra en la siguiente figura:</p>
+<p class="image-container"><img alt="buscando-compile-run" src="img\\a3ba44aca4fa5b5d.jpg"></p>
+<p>Pulse el botón <strong><em>Install</em></strong> de esta extensión para hacer que inicie su proceso de instalación. Cuando finalice aparecerá el engranaje.</p>
+<p>En la caja de búsqueda digite ahora <strong><em>C/C++ IntelliSense</em></strong>. Aparecerá debajo, como se muestra en la siguiente figura:</p>
+<p class="image-container"><img alt="buscando-cc++-intellisense" src="img\\f2bc24a59f1d0d25.jpg"></p>
+<p>Pulse el botón <strong><em>Install</em></strong> de esta extensión para hacer que inicie su proceso de instalación. Cuando finalice aparecerá el engranaje.</p>
+<p>Esta es una facilidad de auto completado de los comandos de C/C++ que usted escribe cuando esté editando programas.</p>
+<p>La cuarta configuración dentro de Visual Studio Code es distinta a las anteriores. En la barra del menú principal, ubicada en la parte superior, pulse la opción <strong><em>File</em></strong>. Luego, en el menú que se despliega pulse la opción <strong><em>Preferences</em></strong> y en el siguiente menú pulse la opción <strong><em>Settings</em></strong>.</p>
+<p>Aparecerá la pestaña de configuración con la etiqueta <strong><em>Settings</em></strong> e inmediatamente abajo una caja para realizar la búsqueda de la opción a configurar. En esta caja escriba <strong><em>Code-Runner: Run in Terminal</em></strong>, como se ve en la siguiente figura:</p>
+<p class="image-container"><img alt="configurando-code-runner" src="img\\ca2b8ac2e2a8595d.jpg"></p>
+<p>Cuando aparezca esa opción abajo, pulse dentro de la caja de selección para chequearla. Luego cierre esta pestaña de configuración pulsando en la <strong>X</strong> que aparece a la par de la etiqueta <strong><em>Settings</em></strong>.</p>
+<p>En este momento habrá terminado el proceso de configuración de Visual Studio Code.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Introducción a codificación en C" duration="10">
+        <h2 is-upgraded>int</h2>
+<p>Los int son tipos de datos que pueden contener valores enteros (positivos, negativos y cero), pero no valores decimales. Por ejemplo, 0, -5, 10.</p>
+<pre><code language="language-c" class="language-c">int id;
+</code></pre>
+<p>Aquí, id es una variable de tipo entero.</p>
+<p>También es posible declarar múltiples variables a la vez en C, así:</p>
+<pre><code language="language-c" class="language-c">int id, edad;
+</code></pre>
+<p>El tamaño de int suele ser de 4 bytes (32 bits).</p>
+<p>---------------------------------------------------------------------------------------------------------------</p>
+<h2 is-upgraded>float y double</h2>
+<p>float y double se utilizan para contener números reales. Por ejemplo: 1.4, 5.9, 9.01.</p>
+<pre><code language="language-c" class="language-c">float salary;
+double price;
+</code></pre>
+<p>En C, los números de punto flotante también se pueden representar en forma exponencial:</p>
+<pre><code language="language-c" class="language-c">float normalizationFactor = 22.442e2;
+</code></pre>
+<p><strong>¿Cuál es la diferencia entre float y double?</strong></p>
+<p>El tamaño de float es de 4 bytes y tiene una precisión decimal más simple, mientras que el tamaño de double (tipo de datos flotante de doble precisión) es de 8 bytes y cuenta con mayor precisión decimal.</p>
+<p>---------------------------------------------------------------------------------------------------------------</p>
+<h2 is-upgraded>char</h2>
+<p>La palabra clave char se emplea para declarar variables de tipo de carácter (su tamaño es de 1 byte). Por ejemplo: a, b, c, k, m.</p>
+<pre><code language="language-c" class="language-c">char letra = &#39;h&#39;;
+</code></pre>
+<p>---------------------------------------------------------------------------------------------------------------</p>
+<h2 is-upgraded>Void (vacío)</h2>
+<p>void es un tipo incompleto. Significa &#34;nada&#34; o &#34;ningún tipo&#34;. Puedes pensar en void como ausente. Por ejemplo, si una función no devuelve nada, su tipo de devolución debería ser void.</p>
+<p>Ten en cuenta que no puedes crear variables de tipo void.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Salidas y Entradas en C (Input/Output)" duration="10">
+        <h2 is-upgraded>Salida en C</h2>
+<p><strong>Ejemplo 1: Salida de texto</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    //Los textos se escriben entre comillas &#34; &#34;
+    printf(&#34;Hola Mundo&#34;);
+    return 0;
+}
+</code></pre>
+<p><strong>¿Cómo funciona este programa?</strong></p>
+<ul>
+<li>Todos los programas en C válidos deben contener la función main().</li>
+<li>La ejecución del código comienza desde el inicio de main().</li>
+<li>printf() es una función de biblioteca para enviar una salida formateada a la pantalla.</li>
+<li>La función imprime la cadena entre comillas.</li>
+<li>Para usar printf() en nuestro programa necesitamos incluir stdio.h, un archivo de encabezado, usando la instrucción #include &lt;stdio.h&gt;.</li>
+<li>La declaración de return 0 dentro de la función main() se entiende como el &#34;Estado de salida&#34; del programa (es opcional).</li>
+</ul>
+<p><strong>Ejemplo 2: Imprimiendo una variable</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    int numeroEntero = 5;
+    printf(&#34;Numero = %d&#34;, numeroEntero);
+    return 0;
+}
+</code></pre>
+<p>Salida:<br> Numero = 5</p>
+<p>Usamos el especificador de formato %d para imprimir ints. Aquí, el %d dentro de las comillas (&#34; &#34;) será reemplazado por el valor de la variable numeroEntero.</p>
+<p><strong>Ejemplo 3: Imprimiendo floats y doubles</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    float numero1 = 13.5;
+    double numero2 = 12.4;
+    
+    printf(&#34;numero 1 = %f\n&#34;, numero1);
+    printf(&#34;numero 2 = %lf&#34;, numero2);
+    return 0;
+}
+</code></pre>
+<p>Salida:<br> numero1 = 13.500000<br> numero2 = 12.400000<br></p>
+<p>Para imprimir float usamos el especificador de formato %f. Del mismo modo, usamos %lf para imprimir valores double. (\n se utiliza para indicar un salto de línea).</p>
+<p><strong>Ejemplo 4: Caracteres</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    char letra = &#39;a&#39;;
+    printf(&#34;letra = %c&#34;, letra);
+    return 0;
+}
+</code></pre>
+<p>Salida:<br> letra = a</p>
+<p>Para imprimir datos de tipo char usamos el especificador de formato %c.</p>
+<h2 is-upgraded>Entrada en C</h2>
+<p>En la programación C, scanf() es una de las funciones comúnmente utilizadas para recibir información del usuario. Esta función lee la entrada formateada de la entrada estándar, como los teclados.</p>
+<p><strong>Ejemplo 5: Ingresando un entero</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    int numeroEntero;
+    printf(&#34;Ingresa un numero entero: &#34;);
+    scanf(&#34;%d&#34;, &amp;numeroEntero);
+    printf(&#34;El numero ingresado es %d&#34;, numeroEntero);
+    return 0;
+}
+</code></pre>
+<p>Salida:<br> Ingresa un número entero: 4<br> El numero ingresado es 4</p>
+<p>Aquí hemos utilizado el especificador de formato %d dentro de la función scanf() para recibir un int de parte del usuario. Cuando el usuario ingresa un número entero, se almacena en la variable numeroEntero.</p>
+<p>Ten en cuenta que hemos utilizado &amp;numeroEntero dentro scanf(). Esto es porque &amp;numeroEntero obtiene la dirección de numeroEntero, y el valor ingresado por el usuario se almacena en esa dirección.</p>
+<p><strong>Ejemplo 6: Ingresando floats y doubles</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    float numero1;
+    double numero2;
+    
+    printf(&#34;Ingresa un numero: &#34;);
+    scanf(&#34;%f&#34;, &amp;numero1);
+    printf(&#34;Ingresa otro numero: &#34;);
+    scanf(&#34;%lf&#34;, &amp;numero2);
+    
+    printf(&#34;numero 1 = %f\n&#34;, numero1);
+    printf(&#34;numero 2 = %lf&#34;, numero2);
+    
+    return 0;
+}
+</code></pre>
+<p>Salida:<br> Ingresa un numero: 12.523<br> Ingresa otro numero: 10.2<br> numero 1 = 12.523000<br> numero 2 = 10.200000</p>
+<p>Usamos los especificadores de formato %f para float y %lf para double.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Tabla de tipos de datos" duration="0">
+        <table>
+<tr><td colspan="1" rowspan="1"><p><strong>Tipo</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Tamaño (bytes)</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Especificador de formato</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>int</p>
+</td><td colspan="1" rowspan="1"><p>Almenos 2, generalmente 4</p>
+</td><td colspan="1" rowspan="1"><p>%d, %i</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>char</p>
+</td><td colspan="1" rowspan="1"><p>1</p>
+</td><td colspan="1" rowspan="1"><p>%c</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>float</p>
+</td><td colspan="1" rowspan="1"><p>4</p>
+</td><td colspan="1" rowspan="1"><p>%f</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>double</p>
+</td><td colspan="1" rowspan="1"><p>8</p>
+</td><td colspan="1" rowspan="1"><p>%lf</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>short int</p>
+</td><td colspan="1" rowspan="1"><p>2 por lo general</p>
+</td><td colspan="1" rowspan="1"><p>%hd</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>unsigned int</p>
+</td><td colspan="1" rowspan="1"><p>Almenos 2, generalmente 4</p>
+</td><td colspan="1" rowspan="1"><p>%u</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>long int</p>
+</td><td colspan="1" rowspan="1"><p>Almenos 4, generalmente 8</p>
+</td><td colspan="1" rowspan="1"><p>%ld, %li</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>long long int</p>
+</td><td colspan="1" rowspan="1"><p>Al menos 8</p>
+</td><td colspan="1" rowspan="1"><p>%lld, %lli</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>unsigned long int</p>
+</td><td colspan="1" rowspan="1"><p>Al menos 4</p>
+</td><td colspan="1" rowspan="1"><p>%lu</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>unsigned long long int</p>
+</td><td colspan="1" rowspan="1"><p>Al menos 8</p>
+</td><td colspan="1" rowspan="1"><p>%llu</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>signed char</p>
+</td><td colspan="1" rowspan="1"><p>1</p>
+</td><td colspan="1" rowspan="1"><p>%c</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>unsigned char</p>
+</td><td colspan="1" rowspan="1"><p>1</p>
+</td><td colspan="1" rowspan="1"><p>%c</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>long double</p>
+</td><td colspan="1" rowspan="1"><p>Almenos 10, generalmente 12 o 16</p>
+</td><td colspan="1" rowspan="1"><p>%LF</p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ejercicios de laboratorio" duration="60">
+        <ol type="1">
+<li>Crear un programa que muestre el texto &#34;Hola Mundo&#34;, &#34;Este es el primer laboratorio de Fundamentos de Programación&#34;, &#34;La fecha de hoy es&#34;, en diferentes líneas.</li>
+<li>Crear un programa en el que se declare una variable de cada tipo vista en el laboratorio, e imprimir el valor de la variable junto con un texto que lo describa. Por ejemplo: para la variable int miNumeroInt = 25; se debe mostrar un texto como &#34;25 es un numero entero&#34;.</li>
+<li>Crear un programa que, ingresado un número, realice las operaciones matemáticas (suma, resta, multiplicación, división) e imprima los resultados.</li>
+<li>Crear un programa que convierta grados Celsius a Fahrenheit ((°C x 9/5) + 32) e imprima el resultado de la conversión.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

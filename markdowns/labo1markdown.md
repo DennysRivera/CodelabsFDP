@@ -21,7 +21,7 @@ compilar y ejecutar los programas de computadora que serán elaborados en clase,
 ## Descargando el compilador
 Duration: 0:03:00
 
-Desde su navegador de Internet acceda al sitio https://sourceforge.net/projects/mingw/files.
+Desde su navegador de Internet acceda al sitio [https://sourceforge.net/projects/mingw/files](https://sourceforge.net/projects/mingw/files).
 Aparecerá una página similar a la siguiente:
 
 ![sourceforge-download-link](./img/labo1/image002.jpg)
