@@ -1,6 +1,6 @@
 author: Equipo de instructores FDP
 summary: Primera práctica de laboratorio FDP
-id: laboratorio-fdp-0222
+id: laboratorio-1-fdp-0222
 tags: workshop,iguide
 categories: C
 environments: Visual Studio Code
@@ -10,7 +10,7 @@ feedback link: A link where users can go to provide feedback (e.g. the git repo 
 # Fundamentos de Programación: Laboratorio 1
 
 ## Introducción
-Duration: 0:10:00
+Duration: 0:02:00
 
 En esta guía se describen los pasos para instalar el software que será utilizado en la materia, para editar,
 compilar y ejecutar los programas de computadora que serán elaborados en clase, en las sesiones de Laboratorio, durante los exámenes y en las tareas. El lenguaje a utilizar es C/C++ y el entorno de desarrollo de programas es el Visual Studio Code. Ambos son gratuitos y se encuentran en servidores del Internet. Para tenerlos listos en sus computadoras se realizarán los siguientes pasos:
@@ -19,6 +19,7 @@ compilar y ejecutar los programas de computadora que serán elaborados en clase,
 + Descarga de Visual Studio Code, instalación de dicho entorno de desarrollo y configuración de algunas facilidades.
 
 ## Descargando el compilador
+Duration: 0:03:00
 
 Desde su navegador de Internet acceda al sitio https://sourceforge.net/projects/mingw/files.
 Aparecerá una página similar a la siguiente:
@@ -36,12 +37,13 @@ Diríjase a la carpeta donde se ha descargado, muy probablemente es la carpeta d
 En este momento habrá terminado el proceso de descarga del compilador de C/C++.
 
 ## Instalando de compilador de C/C++ en su computadora
+Duration: 0:10:00
 
 Dé doble clic sobre el archivo recién descargado para iniciar su ejecución. Espere unos momentos mientras se realiza la descarga y se abre la ventana del proceso de instalación. Se verá similar a la siguiente:
 
-![instaland-mingw](./img/labo1/image004.jpg)
+![instalando-mingw](./img/labo1/image004.jpg)
 
-Cuando se abra el instalador tal vez tenga que pulsar algún par de botones para llegar a esta ventana en el proceso de instalación (cuando se le solicita la carpeta destino, elija la que se le sugiere). Pero, una vez ha llegado a esta ventana elija instalar los paquetes ***mingw32-gcc-g++*** y ***msys-base***. Luego pulse la opción de menú ***Installation*** que se encuentra arriba y a la izquierda de esta ventana y luego seleccione la opción ***Apply Changes***. El proceso de instalación del compilador de C/C++ dará inicio, verá en una nueva ventana la lista de herramientas que se van instalando. Espere hasta que este proceso termine.
+Cuando se abra el instalador tal vez tenga que pulsar algún par de botones para llegar a esta ventana en el proceso de instalación (cuando se le solicita la carpeta destino, elija la que se le sugiere). Pero, una vez ha llegado a esta ventana, elija instalar los paquetes ***mingw32-gcc-g++*** y ***msys-base***. Luego pulse la opción de menú ***Installation*** que se encuentra arriba y a la izquierda de esta ventana y luego seleccione la opción ***Apply Changes***. El proceso de instalación del compilador de C/C++ dará inicio, verá en una nueva ventana la lista de herramientas que se van instalando. Espere hasta que este proceso termine.
 
 Cuando termine el proceso de instalación verá un mensaje indicando que este ha sido exitoso ***All changes were applied successfully; you may now close this dialogue***.
 
@@ -56,6 +58,7 @@ El proceso de instalación de C/C++ habrá finalizado. Puede verificarlo revisan
 En este momento habrá terminado el proceso de instalación del compilador de C/C++.
 
 ## Configurando una variable de entorno del sistema operativo Windows
+Duration: 0:06:00
 
 En su Explorador de Archivos pulse la carpeta ***bin*** que se encuentra detrás de la carpeta ***MinGW***. En la parte superior del Explorador de Archivos verá una barra donde aparece el texto ***MinGW > bin***. Con el puntero del ratón señale esta barra y dé clic derecho. Aparecerá un menú contextual. Pulse la opción ***Copiar dirección como texto*** de este menú, tal y como se ve en la siguiente figura:
 
@@ -84,7 +87,7 @@ Pulse ***Aceptar*** para cerrar esta ventana y luego pulse ***Aceptar*** para ce
 En este momento habrá terminado la configuración de la variable de entorno ***Path***.
 
 ## Adquisición y preparación de Visual Studio Code
-Duration: 0:10:00
+Duration: 0:05:00
 
 ### Descargando el instalador
 En su navegador de Internet escriba ***Visual Studio Code*** para realizar la búsqueda de este entorno de programación. Aparecerá algo similar a lo que se muestra en la siguiente figura:
@@ -105,6 +108,7 @@ Cuando haya terminado el proceso de descarga del instalador abra, desde el Explo
 En este momento habrá terminado el proceso de descarga del instalador de Visual Studio Code.
 
 ## Instalación de Visual Studio Code
+Duration: 0:05:00
 Dé doble clic en el archivo que acaba de descargar para iniciar el proceso de instalación. En la ventana que aparece elija la opción ***Acepto el acuerdo*** y luego pulse el botón ***Siguiente***.
 
 ![comenzando-instalacion-vsc](./img/labo1/image015.jpg)
@@ -113,11 +117,11 @@ Se le pedirá la ruta de instalación en su máquina. A partir de aquí solo pul
 
 Pulse el botón ***Siguiente*** para aceptar la ruta de instalación sugerida.
 
-Se le pedirá el nombre la la carpeta del Menú Inicio. Pulse el botón ***Siguiente*** para aceptar la opción sugerida.
+Se le pedirá el nombre de la carpeta del Menú Inicio. Pulse el botón ***Siguiente*** para aceptar la opción sugerida.
 
 Se le pedirá si quiere que aparezca un botón de acceso directo al Visual Studio Code en el Escritorio de su computadora. Elija esta opción y pulse de nuevo el botón ***Siguiente***.
 
-Finalmente pulse el botón ***Instalar***. El proceso de instalación iniciará y cuando termine pulse el botón ***Finalizar***.
+Finalmente, pulse el botón ***Instalar***. El proceso de instalación comenzará y cuando termine pulse el botón ***Finalizar***.
  
 Se abrirá la ventana de Visual Studio Code. Si no aparece, entonces dé doble clic en el botón de acceso directo que está en el escritorio o búsquelo en el menú Inicio de su sistema operativo.
 
@@ -130,6 +134,7 @@ Verá abrirse la ventana del Visual Studio Code, como se muestra en la siguiente
 En este momento habrá terminado el proceso de instalación de Visual Studio Code.
 
 ## Configuración de algunas facilidades del entorno de Visual Studio Code
+Duration: 0:10:00
 
 Realizaremos cuatro configuraciones dentro del entorno de Visual Studio Code. Las primeras tres de ellas tienen el mismo proceso de configuración.
 
@@ -149,7 +154,7 @@ En esta caja de búsqueda digite ***Code Runner*** y aparecerá lo siguiente:
 
 ![buscando-code-runner](./img/labo1/image020.jpg)
 
-Pulse el botón ***Install*** de esta extensión para hacer que inicie su proceso de instalación. Cuando finalice, este botón se habrá cambiado por un pequeño engranaje, como puede ver en la siguiente figura:
+Pulse el botón ***Install*** de esta extensión para hacer que empiece su proceso de instalación. Cuando finalice, este botón se habrá cambiado por un pequeño engranaje, como puede ver en la siguiente figura:
 
 ![code-runner-instalado](./img/labo1/image021.jpg)
 
@@ -183,7 +188,7 @@ En este momento habrá terminado el proceso de configuración de Visual Studio C
 
 
 ## Introducción a codificación en C
-Duration: 0:20:00
+Duration: 0:10:00
 
 ### int
 Los int son tipos de datos que pueden contener valores enteros (positivos, negativos y cero), pero no valores decimales. Por ejemplo, 0, -5, 10.
@@ -217,7 +222,7 @@ El tamaño de float es de 4 bytes y tiene una precisión decimal más simple, mi
 <p>---------------------------------------------------------------------------------------------------------------</p>
 
 ### char
-La palabra clave char se utiliza para declarar variables de tipo de carácter (su tamaño es de 1 byte). Por ejemplo: a, b, c, k, m.
+La palabra clave char se emplea para declarar variables de tipo de carácter (su tamaño es de 1 byte). Por ejemplo: a, b, c, k, m.
 ```c
 char letra = 'h';
 ```
@@ -233,6 +238,7 @@ Ten en cuenta que no puedes crear variables de tipo void.
 ## Salidas y Entradas en C (Input/Output)
 
 ### Salida en C
+Duration: 0:10:00
 En programación C, printf() es una de las principales funciones de salida. La función envía una salida formateada a la pantalla.
 
 **Ejemplo 1: Salida de texto**
@@ -353,7 +359,6 @@ numero 2 = 10.200000
 Usamos los especificadores de formato %f para float y %lf para double.
 
 ## Tabla de tipos de datos
-Duration: 0:10:00
 
 | **Tipo**                   | **Tamaño (bytes)**                   | **Especificador de formato** |
 | -------------------------- | ------------------------------------ | ---------------------------- |
@@ -373,9 +378,9 @@ Duration: 0:10:00
 
 
 ## Ejercicios de laboratorio
-Duration: 0:40:00
+Duration: 1:00:00
 
-1. Crear un programa que meustre el texto "Hola Mundo", "Este es el primer laboratorio de Fundamentos de Programación", "La fecha de hoy es", en diferentes líneas.
-2. Crear un programa en el que se ingresa el nombre y apellido del estudiante y los muestre con el apellido primero y después el nombre.
+1. Crear un programa que muestre el texto "Hola Mundo", "Este es el primer laboratorio de Fundamentos de Programación", "La fecha de hoy es", en diferentes líneas.
+2. Crear un programa en el que se declare una variable de cada tipo vista en el laboratorio, e imprimir el valor de la variable junto con un texto que lo describa. Por ejemplo: para la variable int miNumeroInt = 25; se debe mostrar un texto como "25 es un numero entero".
 3. Crear un programa que, ingresado un número, realice las operaciones matemáticas (suma, resta, multiplicación, división) e imprima los resultados.
-4. Crar un programa que convierta grados Celsius a Fahrenheit ((°C x 9/5) + 32) e imprima el resultado de la conversión.
+4. Crear un programa que convierta grados Celsius a Fahrenheit ((°C x 9/5) + 32) e imprima el resultado de la conversión.
