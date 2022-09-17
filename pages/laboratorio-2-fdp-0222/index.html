@@ -1,0 +1,326 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Fundamentos de Programación: Laboratorio 2</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="laboratorio-2-fdp-0222"
+                  title="Fundamentos de Programación: Laboratorio 2"
+                  environment="web"
+                  feedback-link="A link where users can go to provide feedback (e.g. the git repo or issue page)">
+    
+      <google-codelab-step label="Introducción" duration="2">
+        <p class="image-container"><img alt="logo-uca" src="img\\38d09c707475c7fd.jpg"></p>
+<p>En este laboratorio se introducirá el uso de las funciones <strong>if</strong> y <strong>else</strong>, además de <strong>switch</strong> y su sintaxis correspondiente.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conceptos básicos de if" duration="10">
+        <h2 is-upgraded>¿Cómo funciona la declaración if?</h2>
+<p>La declaración <code>if</code> evalúa la expresión de prueba dentro del paréntesis (), dando lugar a dos escenarios:</p>
+<ol type="1">
+<li>Si la expresión de prueba (o condición) se evalúa como verdadera (<strong><em>true</em></strong>), entonces se ejecutan las instrucciones dentro del cuerpo del if.</li>
+<li>Si la expresión de prueba (o condición) se evalúa como falsa (<strong><em>false</em></strong>), entonces las instrucciones dentro del cuerpo del if no se ejecutan.</li>
+</ol>
+<h3 is-upgraded>Funcionamiento de la declaración if</h3>
+<p>Para obtener más información sobre cuándo la expresión de prueba (o condición) se evalúa como verdadera (valor distinto de cero) y cuándo se evalúa como falsa (0), consulte los operadores relacionales y lógicos. <br></p>
+<p>________________________________________________________________________</p>
+<p><strong>Ejemplo 1: declaración de if</strong></p>
+<pre><code language="language-c" class="language-c">// Este programa indica si un número ingresado es negativo
+
+#include &lt;stdio.h&gt;
+int main() {
+    int numero; 
+
+    printf(&#34;Introduzca un numero entero: &#34;);
+    scanf(&#34;%d&#34;, &amp;numero);
+
+    // La condición devolverá verdadero/true si el número es menor que 0
+    if (numero &lt; 0) {
+        printf(&#34;%d es un numero negativo.\n&#34;, numero);
+    }
+
+    printf(&#34;Las instrucciones afuera del if se ejecutan.&#34;);
+
+    return 0;
+}
+</code></pre>
+<p><strong>Resultado con condición verdadera:<br></strong> Introduzca un numero entero: -2<br> -2 es un numero negativo.<br> Las instrucciones afuera del if se ejecutan.<br></p>
+<p>Cuando el usuario ingresa -2, la expresión de prueba <code>numero < 0</code> se evalúa como verdadera; por esa razón se muestra en pantalla el mensaje declarado dentro del cuerpo del <strong>if</strong>.</p>
+<p>________________________________________________________________________</p>
+<p><strong>Resultado con condición falsa:<br></strong> Introduzca un numero entero: 5<br> Las instrucciones afuera del if se ejecutan.<br></p>
+<p>Cuando el usuario ingresa 5, la expresión de prueba <code>numero < 0</code> se evalúa como falsa y la declaración dentro del cuerpo de if no se ejecuta.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="if...else" duration="0">
+        <h2 is-upgraded>¿Cómo funciona if...else?</h2>
+<p>La declaración if puede tener un bloque de instrucciones opcional, <code>else</code>.</p>
+<p>Si la expresión de prueba se evalúa como <strong>verdadera</strong>, entonces:</p>
+<ul>
+<li>Se ejecutan las instrucciones dentro del cuerpo del <strong>if</strong>.</li>
+<li>Todo lo que se encuentre dentro del cuerpo de <strong>else</strong> se omite de la ejecución.</li>
+</ul>
+<p>Si la expresión de prueba se evalúa como <strong>falsa</strong>, entonces:</p>
+<ul>
+<li>Todo lo que se encuentre dentro del cuerpo de <strong>if</strong> se omite de la ejecución.</li>
+<li>Se ejecutan las instrucciones dentro del cuerpo de <strong>else</strong>.<br></li>
+</ul>
+<h2 is-upgraded>Sintaxis de if...else</h2>
+<pre><code language="language-c" class="language-c">if (condición para verdadero) {
+    // Instrucciones en caso de un resultado verdadero
+}
+else {
+    // Instrucciones en caso de un resultado falso
+}
+</code></pre>
+<p>________________________________________________________________________</p>
+<p><strong>Ejemplo 2: Instrucción if...else</strong></p>
+<pre><code language="language-c" class="language-c">// Comprobar si un número es par o impar
+
+#include &lt;stdio.h&gt;
+int main() {
+    int numero;
+
+    printf(&#34;Introduzca un numero entero: &#34;);
+    scanf(&#34;%d&#34;, &amp;numero);
+
+    // Devuelve true si el residuo es 0
+    if (numero % 2 == 0) {
+        printf(&#34;%d es un entero par.&#34;, numero);
+    }
+    else {
+        printf(&#34;%d es un entero impar.&#34;, numero);
+    }
+
+    return 0;
+}
+</code></pre>
+<p><strong>Resultado:<br></strong> Introduzca un numero entero: 7<br> 7 es un entero impar.<br></p>
+<p>Cuando el usuario ingresa 7, la expresión de prueba <code>numero % 2 == 0</code> se evalúa como falsa.  Por lo tanto, se ejecuta la declaración dentro del cuerpo de <strong>else</strong>.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="else if" duration="0">
+        <p>La declaración if...else ejecuta dos bloques de instrucciones diferentes dependiendo de si la condición es verdadera o falsa, pero se presentarán ocasiones en las que tendremos que elegir entre más de 2 posibilidades. El uso de <code>else if ()</code> nos permite verificar entre múltiples condiciones y ejecutar diferentes instrucciones, así:</p>
+<pre><code language="language-c" class="language-c">if (condicion para verdadero) {
+   // Instrucciones a ejecutar para resultado verdadero
+}
+else if(segunda condicion) {
+   // Instrucciones a ejecutar para resultado verdadero
+}
+else if (tercera condicion) {
+   // Instrucciones a ejecutar para resultado verdadero
+}
+.
+.
+else {
+   // Instrucciones a ejecutar para resultado falso
+}
+</code></pre>
+<p>________________________________________________________________________</p>
+<p><strong>Ejemplo 3: Comparando números con else if ()</strong></p>
+<pre><code language="language-c" class="language-c">// Programa para comparar enteros con los signos =, &gt; y &lt;
+// usando else if ()
+
+#include &lt;stdio.h&gt;
+int main() {
+    int numero1, numero2;
+
+    printf(&#34;Introduzca dos numeros enteros: &#34;);
+    scanf(&#34;%d %d&#34;, &amp;numero1, &amp;numero2);
+
+    //Aquí se comprueba si los números son iguales
+    if(numero1 == numero2) {
+        printf(&#34;Resultado: %d = %d&#34;, numero1, numero2);
+    }
+
+    //Aquí se comprueba si el primer números (variable numero1)
+    //es mayor al segundo número (variable numero2)
+    else if (numero1 &gt; numero2) {
+        printf(&#34;Resultado: %d &gt; %d&#34;, numero1, numero2);
+    }
+
+    //Lo siguiente se ejecuta si las condiciones anteriores
+    //resultaron ser falsas, es decir, si los número NO son iguales
+    //y si el primer número NO es mayor que el segundo
+    else {
+        printf(&#34;Resultado: %d &lt; %d&#34;,numero1, numero2);
+    }
+
+    return 0;
+}
+</code></pre>
+<p><strong>Resultado:<br></strong> Introduzca dos números enteros: 12<br> 23<br> Resultado: 12 &lt; 23<br></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="if...else anidados" duration="0">
+        <p>Es posible incluir una declaración if...else dentro del cuerpo de otra declaración if...else. Es similar a usar <code>else if ()</code> del apartado anterior, excepto que aquí cualquier<code>if ()</code> adicional que queramos agregar será dentro de un if o else existente.</p>
+<p><strong>Ejemplo 4: Comparando número con if...else anidado</strong></p>
+<pre><code language="language-c" class="language-c">// Programa para comparar enteros con los signos =, &gt; y &lt;
+// usando if anidados
+#include &lt;stdio.h&gt;
+int main() {
+    int numero1, numero2;
+
+    printf(&#34;Introduzca dos numeros enteros: &#34;);
+    scanf(&#34;%d %d&#34;, &amp;numero1, &amp;numero2);
+
+    if (numero1 &gt;= numero2) {
+      if (numero1 == numero2) {
+        printf(&#34;Resultado: %d = %d&#34;, numero1, numero2);
+      }
+      else {
+        printf(&#34;Resultado: %d &gt; %d&#34;, numero1, numero2);
+      }
+    }
+    else {
+        printf(&#34;Resultado: %d &lt; %d&#34;, numero1, numero2);
+    }
+
+    return 0;
+}
+</code></pre>
+<p><strong>Explicación del código:<br></strong><code>if (numero1 >= numero2)</code>: Aquí se verifica si el primer número (variable numero1) es <strong>mayor</strong> o <strong>igual</strong> que el segundo número (variable numero2). Si esta condición se cumple, entonces se procede a entrar al cuerpo del if:<br></p>
+<ul>
+<li><code>if (numero1 == numero2){...} else{...}</code>: Si se ha cumplido que el primero valor es mayor o igual que el segundo, entonces entra en el if anidado, que verifica si el primer número es igual al segundo. Si son iguales, se imprime el resultado y salimos de la verificación; en caso contrario, en el else anidado se asume que el primero es mayor que el segundo y salimos de la verificación.</li>
+</ul>
+<p>Si la verificación de <code>numero1 >= numero2</code> devuelve falso, entonces ignoramos cualquier verificación anidada y saltamos directamente al else.<br></p>
+<p>________________________________________________________________________</p>
+<h2 is-upgraded>Aclaración adicional</h2>
+<p>Si la declaración if o else constan de una sola instrucción, entonces podemos omitir las llaves { }. Por ejemplo, este código:</p>
+<pre><code language="language-c" class="language-c">if (a &gt; b) {
+    printf(&#34;Hola&#34;);
+}
+printf(&#34;Mundo);
+</code></pre>
+<p>Es equivalente a</p>
+<pre><code language="language-c" class="language-c">if (a &gt; b)
+    printf(&#34;Hola&#34;);
+printf(&#34;Mundo&#34;);
+</code></pre>
+<p>O incluso a</p>
+<pre><code language="language-c" class="language-c">if (a &gt; b) printf(&#34;Hola&#34;);
+printf(&#34;Mundo&#34;);
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Switch" duration="0">
+        <p>La instrucción <code>switch</code> nos permite ejecutar un bloque de código entre muchas alternativas. Puedes pensar en esto como una secuencia de if(){...} else if(){...} else{...}, o en varios if...else anidados; sin embargo, la sintaxis de switch es mucho más fácil de leer y escribir:</p>
+<h2 is-upgraded>Sintaxis de switch</h2>
+<pre><code language="language-c" class="language-c">switch (expresion)
+{
+    case valor1:
+      // Instrucciones a ejecutar
+      break;
+
+    case valor2:
+      // Instrucciones a ejecutar
+      break;
+    .
+    . //Aquí van tantos casos como necesitemos
+    .
+    default:
+      // Instrucciones a ejecutar
+}
+</code></pre>
+<p>¿Cómo funciona la instrucción <code>switch</code>? La expresión se evalúa una vez y se compara con los valores de cada etiqueta <code>case</code>, dando lugar a lo siguiente:</p>
+<ul>
+<li>Si hay una coincidencia, se ejecutan las instrucciones correspondientes después de la etiqueta coincidente. Por ejemplo, si el valor de <code>expresion</code> es igual <code>valor2</code>, entonces las instrucciones que se encuentran después de <code>case valor2:</code> se ejecutan hasta que se encuentran con <code>break</code>.</li>
+<li>Si no hay ninguna coincidencia, entonces se ejecutan las instrucciones dentro del caso predeterminado (<strong>default</strong>).</li>
+</ul>
+<h3 is-upgraded>Notas:</h3>
+<ul>
+<li>Si no usamos la instrucción <code>break</code>, todas las instrucciones después de la etiqueta coincidente también se ejecutan.</li>
+<li>El caso <code>default</code> dentro de la declaración del switch es opcional.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Diagrama de flujo de switch" duration="0">
+        <p>Aquí se muestra una imagen del diagrama de flujo que se sigue con la instrucción <code>switch</code>. <img alt="diagrama-flujo-switch" src="img\\4555264d81c069a9.jpg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ejemplo de switch" duration="0">
+        <p><strong>Ejemplo 1: Calculadora simple</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    char operador;
+    double numero1, numero2;
+
+    printf(&#34;Introduzca un operador (+, -, *, /): &#34;);
+    scanf(&#34;%c&#34;, &amp;operador);
+    printf(&#34;Introduzca dos operandos: &#34;);
+    scanf(&#34;%lf %lf&#34;,&amp;numero1, &amp;numero2);
+
+    switch(operador)
+    {
+        case &#39;+&#39;:
+            printf(&#34;%.1lf + %.1lf = %.1lf&#34;,numero1, numero2, numero1 + numero2);
+            break;
+
+        case &#39;-&#39;:
+            printf(&#34;%.1lf - %.1lf = %.1lf&#34;,numero1, numero2, numero1 - numero2);
+            break;
+
+        case &#39;*&#39;:
+            printf(&#34;%.1lf * %.1lf = %.1lf&#34;,numero1, numero2, numero1 * numero2);
+            break;
+
+        case &#39;/&#39;:
+            printf(&#34;%.1lf / %.1lf = %.1lf&#34;,numero1, numero2, numero1 / numero2);
+            break;
+
+        // Llegaremos aquí si el valor introducido
+        // no es caulquiera de estos: +, -, *, /
+        default:
+            printf(&#34;Error! Operador incorrecto!&#34;);
+    }
+
+    return 0;
+}
+</code></pre>
+<p><strong>Resultado:<br></strong> Introduzca un operador (+, -, *, /): -<br> Introduzca dos operandos: 32,5<br> 12.4<br> 32,5 - 12,4 = 20,1<br></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
