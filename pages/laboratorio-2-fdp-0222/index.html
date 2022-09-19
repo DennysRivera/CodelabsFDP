@@ -28,7 +28,7 @@
                   feedback-link="A link where users can go to provide feedback (e.g. the git repo or issue page)">
     
       <google-codelab-step label="Introducción" duration="2">
-        <p class="image-container"><img alt="logo-uca" src="img\\38d09c707475c7fd.jpg"></p>
+        <p class="image-container"><img alt="logo-uca" src="img\\38d09c707475c7fd.jpg" width="200"></p>
 <p>En este laboratorio se introducirá el uso de las funciones <strong>if</strong> y <strong>else</strong>, además de <strong>switch</strong> y su sintaxis correspondiente.</p>
 
 
@@ -43,7 +43,7 @@
 </ol>
 <h3 is-upgraded>Funcionamiento de la declaración if</h3>
 <p>Para obtener más información sobre cuándo la expresión de prueba (o condición) se evalúa como verdadera (valor distinto de cero) y cuándo se evalúa como falsa (0), consulte los operadores relacionales y lógicos. <br></p>
-<p>________________________________________________________________________</p>
+<hr>
 <p><strong>Ejemplo 1: declaración de if</strong></p>
 <pre><code language="language-c" class="language-c">// Este programa indica si un número ingresado es negativo
 
@@ -66,7 +66,7 @@ int main() {
 </code></pre>
 <p><strong>Resultado con condición verdadera:<br></strong> Introduzca un numero entero: -2<br> -2 es un numero negativo.<br> Las instrucciones afuera del if se ejecutan.<br></p>
 <p>Cuando el usuario ingresa -2, la expresión de prueba <code>numero < 0</code> se evalúa como verdadera; por esa razón se muestra en pantalla el mensaje declarado dentro del cuerpo del <strong>if</strong>.</p>
-<p>________________________________________________________________________</p>
+<hr>
 <p><strong>Resultado con condición falsa:<br></strong> Introduzca un numero entero: 5<br> Las instrucciones afuera del if se ejecutan.<br></p>
 <p>Cuando el usuario ingresa 5, la expresión de prueba <code>numero < 0</code> se evalúa como falsa y la declaración dentro del cuerpo de if no se ejecuta.</p>
 
@@ -94,7 +94,7 @@ else {
     // Instrucciones en caso de un resultado falso
 }
 </code></pre>
-<p>________________________________________________________________________</p>
+<hr>
 <p><strong>Ejemplo 2: Instrucción if...else</strong></p>
 <pre><code language="language-c" class="language-c">// Comprobar si un número es par o impar
 
@@ -139,7 +139,7 @@ else {
    // Instrucciones a ejecutar para resultado falso
 }
 </code></pre>
-<p>________________________________________________________________________</p>
+<hr>
 <p><strong>Ejemplo 3: Comparando números con else if ()</strong></p>
 <pre><code language="language-c" class="language-c">// Programa para comparar enteros con los signos =, &gt; y &lt;
 // usando else if ()
@@ -209,7 +209,7 @@ int main() {
 <li><code>if (numero1 == numero2){...} else{...}</code>: Si se ha cumplido que el primero valor es mayor o igual que el segundo, entonces entra en el if anidado, que verifica si el primer número es igual al segundo. Si son iguales, se imprime el resultado y salimos de la verificación; en caso contrario, en el else anidado se asume que el primero es mayor que el segundo y salimos de la verificación.</li>
 </ul>
 <p>Si la verificación de <code>numero1 >= numero2</code> devuelve falso, entonces ignoramos cualquier verificación anidada y saltamos directamente al else.<br></p>
-<p>________________________________________________________________________</p>
+<hr>
 <h2 is-upgraded>Aclaración adicional</h2>
 <p>Si la declaración if o else constan de una sola instrucción, entonces podemos omitir las llaves { }. Por ejemplo, este código:</p>
 <pre><code language="language-c" class="language-c">if (a &gt; b) {
@@ -279,6 +279,7 @@ int main() {
 
     printf(&#34;Introduzca un operador (+, -, *, /): &#34;);
     scanf(&#34;%c&#34;, &amp;operador);
+    
     printf(&#34;Introduzca dos operandos: &#34;);
     scanf(&#34;%lf %lf&#34;,&amp;numero1, &amp;numero2);
 
@@ -310,6 +311,202 @@ int main() {
 }
 </code></pre>
 <p><strong>Resultado:<br></strong> Introduzca un operador (+, -, *, /): -<br> Introduzca dos operandos: 32,5<br> 12.4<br> 32,5 - 12,4 = 20,1<br></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ejercicio guiado" duration="0">
+        <p>Cree un programa que indique si un estudiante ha aprobado Fundamentos de Programación dadas sus notas, donde:</p>
+<ul>
+<li>Primer parcial 20%</li>
+<li>Segundo examen 20%</li>
+<li>Laboratorios 40%</li>
+<li>Proyecto 20%</li>
+</ul>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    float parcial1, parcial2, labos, proyecto, promedio;
+
+    printf(&#34;Ingrese nota del parcial 1: &#34;);
+    scanf(&#34;%f&#34;, &amp;parcial1);
+
+    printf(&#34;Ingrese nota del parcial 2: &#34;);
+    scanf(&#34;%f&#34;, &amp;parcial2);
+
+    printf(&#34;Ingrese nota de los laboratorios: &#34;);
+    scanf(&#34;%f&#34;, &amp;labos);
+
+    printf(&#34;Ingrese nota del proyecto: &#34;);
+    scanf(&#34;%f&#34;, &amp;proyecto);
+
+    promedio = (parcial1 * 0.2) + (parcial2 * 0.2) + (labos * 0.4) + (proyecto * 0.2);
+
+    printf(&#34;Nota obtenida: %f&#34;, promedio);
+    if(promedio &gt;= 6.0)
+        printf(&#34;\nEstudiante aprobado&#34;);
+    else
+        printf(&#34;\nEstudiante reprobado&#34;);
+
+    return 0;
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Piedra, papel y tijeras" duration="0">
+        <p>Estas son dos soluciones propuestas para resolver el ejercicio de clase para la creación de un programa para jugar Piedra, papel y tijeras.</p>
+<h2 is-upgraded>Mediante if...else y else if</h2>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main()
+{
+
+    int Usuario, Pc, Piedra = 1, Papel = 2, Tijeras = 3;
+
+    printf(&#34;Ingresar un numero del 1 al 3: \n\t1. Piedra\n\t2. Papel\n\t3. Tijeras&#34;);
+    scanf(&#34;%d&#34;, &amp;Usuario);
+
+    srand(time(NULL));
+    Pc = rand() % 3 + 1;
+
+    switch (Usuario)
+    {
+    case 1:
+        if (Pc == 1)
+        {
+            printf(&#34;Fue un empate\n&#34;);
+        }
+        else if (Pc == 2)
+        {
+            printf(&#34;Gano la pc\n&#34;);
+        }
+        else
+        {
+            printf(&#34;El usuario gano\n&#34;);
+        }
+        break;
+    case 2:
+        if (Pc == 2)
+        {
+            printf(&#34;Fue un empate\n&#34;);
+        }
+        else if (Pc == 3)
+        {
+            printf(&#34;Gano la pc\n&#34;);
+        }
+        else
+        {
+            printf(&#34;Gano el usuario\n&#34;);
+        }
+    case 3:
+        if (Pc == 3)
+        {
+            printf(&#34;Es un empate\n&#34;);
+        }
+        else if (Pc == 1)
+        {
+            printf(&#34;Gano la pc\n&#34;);
+        }
+        else
+        {
+            printf(&#34;Gano el usuario&#34;);
+        }
+
+    default:
+        printf(&#34;Ingrese un valor de 1 a 3\n&#34;);
+        break;
+    }
+
+    return 0;
+}
+</code></pre>
+<hr>
+<h2 is-upgraded>Mediante if...else y switch</h2>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(){
+
+    int usuario, pc;
+
+    printf(&#34;Seleccionar opcion: \n\n\t1. Piedra\n\t2. Papel\n\t3. Tijera\n\nMi opcion: &#34;);
+    scanf(&#34;%d&#34;, &amp;usuario);
+
+    srand(time(NULL));
+    pc = rand() % 3 + 1;
+
+    switch (usuario)
+    {
+    case 1:
+        if (pc == 1)
+        {
+            printf(&#34;\n\t\t**EMPATE**\nSeleccionaste Piedra, y tu contrincante tambien.&#34;);
+        } else {
+            if (pc == 2)
+            {
+                printf(&#34;\n\t\t**DERROTA**\nSeleccionaste Piedra, pero tu contrincante escogio Papel&#34;);
+            } else {
+                printf(&#34;\n\t\t**VICTORIA**\nSeleccionaste Piedra, mientras que tu contrincante escogio Tijera&#34;);
+            }
+        }
+        
+        break;
+
+    case 2:
+        if (pc == 2)
+        {
+             printf(&#34;\n\t\t**EMPATE**\nSeleccionaste Papel, y tu contrincante tambien.&#34;);
+        } else {
+            if (pc == 3)
+            {
+                printf(&#34;\n\t\t**DERROTA**\nSeleccionaste Papel, pero tu contrincante escogio Tijera&#34;);
+            } else {
+                printf(&#34;\n\t\t**VICTORIA**\nSeleccionaste Papel, mientras que tu contrincante escogio Piedra&#34;);
+            }
+        }
+
+        break;
+        
+    case 3:
+        if (pc == 3)
+        {
+             printf(&#34;\n\t\t**EMPATE**\nSeleccionaste Tijera, y tu contrincante tambien.&#34;);
+        } else {
+            if (pc == 1)
+            {
+                printf(&#34;\n\t\t**DERROTA**\nSeleccionaste Tijera, pero tu contrincante escogio Piedra&#34;);
+            } else {
+                printf(&#34;\n\t\t**VICTORIA**\nSeleccionaste Tijera, mientras que tu contrincante escogio Papel&#34;);
+            }
+        }
+
+        break;
+    
+    default:
+        printf(&#34;Tu opcion no fue valida. Has sido descalificado&#34;);
+
+        break;
+    }
+
+    return 0;
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ejercicios de laboratorio" duration="0">
+        <ol type="1">
+<li>Crear un programa que acepte un número (puede ser entero o con decimales) y compruebe si se trata de un número positivo, negativo o cero.</li>
+<li>Crear un programa que acepte una letra e indique si es una vocal o una consonante (preferiblemente implementar un switch).</li>
+<li>Hacer un programa en C++ para una tienda de zapatos que tiene una promoción de descuento para vender al mayor, esta dependerá del número de zapatos que se compren. Si son más de diez, se les dará un 10% de descuento sobre el total de la compra; si el número de zapatos es mayor de veinte pero menor de treinta, se le otorga un 20% de descuento; y si son más treinta zapatos se otorgará un 40% de descuento. El precio de cada zapato es de $80.</li>
+<li>Hacer un programa que solicite la edad del usuario. Si la edad del usuario es igual o mayor a 18 años, se debe mostrar en pantalla una lista de las materias que esté cursando este ciclo, de las que deberá escoger su favorita; si la edad es menor, se debe mostrar en pantalla una lista con las materias básicas (matemáticas, lenguaje, ciencias y sociales). Por último, dependiendo de la opción seleccionada, debe mostrar un mensaje similar a este: &#34;Su edad es X y ha escogido la opción Y&#34;.</li>
+</ol>
 
 
       </google-codelab-step>

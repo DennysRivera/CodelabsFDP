@@ -336,3 +336,194 @@ Introduzca dos operandos: 32,5<br>
 12.4<br>
 32,5 - 12,4 = 20,1<br>
 
+## Ejercicio guiado
+Cree un programa que indique si un estudiante ha aprobado Fundamentos de Programación dadas sus notas, donde:
++ Primer parcial 20%
++ Segundo examen 20%
++ Laboratorios 40%
++ Proyecto 20%
+
+
+```c
+#include <stdio.h>
+
+int main() {
+    float parcial1, parcial2, labos, proyecto, promedio;
+
+    printf("Ingrese nota del parcial 1: ");
+    scanf("%f", &parcial1);
+
+    printf("Ingrese nota del parcial 2: ");
+    scanf("%f", &parcial2);
+
+    printf("Ingrese nota de los laboratorios: ");
+    scanf("%f", &labos);
+
+    printf("Ingrese nota del proyecto: ");
+    scanf("%f", &proyecto);
+
+    promedio = (parcial1 * 0.2) + (parcial2 * 0.2) + (labos * 0.4) + (proyecto * 0.2);
+
+    printf("Nota obtenida: %f", promedio);
+    if(promedio >= 6.0)
+        printf("\nEstudiante aprobado");
+    else
+        printf("\nEstudiante reprobado");
+
+    return 0;
+}
+```
+
+## Piedra, papel y tijeras
+
+Estas son dos soluciones propuestas para resolver el ejercicio de clase para la creación de un programa para jugar Piedra, papel y tijeras.
+
+### Mediante if...else y else if
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+
+    int Usuario, Pc, Piedra = 1, Papel = 2, Tijeras = 3;
+
+    printf("Ingresar un numero del 1 al 3: \n\t1. Piedra\n\t2. Papel\n\t3. Tijeras");
+    scanf("%d", &Usuario);
+
+    srand(time(NULL));
+    Pc = rand() % 3 + 1;
+
+    switch (Usuario)
+    {
+    case 1:
+        if (Pc == 1)
+        {
+            printf("Fue un empate\n");
+        }
+        else if (Pc == 2)
+        {
+            printf("Gano la pc\n");
+        }
+        else
+        {
+            printf("El usuario gano\n");
+        }
+        break;
+    case 2:
+        if (Pc == 2)
+        {
+            printf("Fue un empate\n");
+        }
+        else if (Pc == 3)
+        {
+            printf("Gano la pc\n");
+        }
+        else
+        {
+            printf("Gano el usuario\n");
+        }
+    case 3:
+        if (Pc == 3)
+        {
+            printf("Es un empate\n");
+        }
+        else if (Pc == 1)
+        {
+            printf("Gano la pc\n");
+        }
+        else
+        {
+            printf("Gano el usuario");
+        }
+
+    default:
+        printf("Ingrese un valor de 1 a 3\n");
+        break;
+    }
+
+    return 0;
+}
+```
+
+### Mediante if...else y switch
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+    int usuario, pc;
+
+    printf("Seleccionar opcion: \n\n\t1. Piedra\n\t2. Papel\n\t3. Tijera\n\nMi opcion: ");
+    scanf("%d", &usuario);
+
+    srand(time(NULL));
+    pc = rand() % 3 + 1;
+
+    switch (usuario)
+    {
+    case 1:
+        if (pc == 1)
+        {
+            printf("\n\t\t**EMPATE**\nSeleccionaste Piedra, y tu contrincante tambien.");
+        } else {
+            if (pc == 2)
+            {
+                printf("\n\t\t**DERROTA**\nSeleccionaste Piedra, pero tu contrincante escogio Papel");
+            } else {
+                printf("\n\t\t**VICTORIA**\nSeleccionaste Piedra, mientras que tu contrincante escogio Tijera");
+            }
+        }
+        
+        break;
+
+    case 2:
+        if (pc == 2)
+        {
+             printf("\n\t\t**EMPATE**\nSeleccionaste Papel, y tu contrincante tambien.");
+        } else {
+            if (pc == 3)
+            {
+                printf("\n\t\t**DERROTA**\nSeleccionaste Papel, pero tu contrincante escogio Tijera");
+            } else {
+                printf("\n\t\t**VICTORIA**\nSeleccionaste Papel, mientras que tu contrincante escogio Piedra");
+            }
+        }
+
+        break;
+        
+    case 3:
+        if (pc == 3)
+        {
+             printf("\n\t\t**EMPATE**\nSeleccionaste Tijera, y tu contrincante tambien.");
+        } else {
+            if (pc == 1)
+            {
+                printf("\n\t\t**DERROTA**\nSeleccionaste Tijera, pero tu contrincante escogio Piedra");
+            } else {
+                printf("\n\t\t**VICTORIA**\nSeleccionaste Tijera, mientras que tu contrincante escogio Papel");
+            }
+        }
+
+        break;
+    
+    default:
+        printf("Tu opcion no fue valida. Has sido descalificado");
+
+        break;
+    }
+
+    return 0;
+}
+```
+
+## Ejercicios de laboratorio
+
+1. Crear un programa que acepte un número (puede ser entero o con decimales) y compruebe si se trata de un número positivo, negativo o cero.
+2. Crear un programa que acepte una letra e indique si es una vocal o una consonante (preferiblemente implementar un switch).
+3. Hacer un programa en C++ para una tienda de zapatos que tiene una promoción de descuento para vender al mayor, esta dependerá del número de zapatos que se compren. Si son más de diez, se les dará un 10% de descuento sobre el total de la compra; si el número de zapatos es mayor de veinte pero menor de treinta, se le otorga un 20% de descuento; y si son más treinta zapatos se otorgará un 40% de descuento. El precio de cada zapato es de $80.
+4. Hacer un programa que solicite la edad del usuario. Si la edad del usuario es igual o mayor a 18 años, se debe mostrar en pantalla una lista de las materias que esté cursando este ciclo, de las que deberá escoger su favorita; si la edad es menor, se debe mostrar en pantalla una lista con las materias básicas (matemáticas, lenguaje, ciencias y sociales). Por último, dependiendo de la opción seleccionada, debe mostrar un mensaje similar a este: "Su edad es X y ha escogido la opción Y".
+
