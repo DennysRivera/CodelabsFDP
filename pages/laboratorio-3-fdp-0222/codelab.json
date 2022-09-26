@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-09-25T22:54:13-06:00",
+  "id": "laboratorio-3-fdp-0222",
+  "duration": 0,
+  "title": "Fundamentos de Programación: Laboratorio 3",
+  "summary": "Segunda práctica de laboratorio FDP",
+  "source": ".\\markdowns\\labo3markdown.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "c"
+  ],
+  "tags": [
+    "iguide",
+    "visualstudiocode",
+    "workshop"
+  ],
+  "feedback": "A link where users can go to provide feedback (e.g. the git repo or issue page)",
+  "url": "laboratorio-3-fdp-0222"
+}
