@@ -1,0 +1,285 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Fundamentos de Programación: Laboratorio 4</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+    .important {
+        height: 5vh;
+        display: flex;
+        color: gray;
+        font-weight: bold;
+        background-color: #bfe3b4;
+        justify-content: center;
+        align-items: center;
+    }
+    .bold-text {
+        font-size: large;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="laboratorio-4B-fdp-0222"
+                  title="Fundamentos de Programación: Laboratorio 4"
+                  environment="web"
+                  feedback-link="A link where users can go to provide feedback (e.g. the git repo or issue page)">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p class="image-container"><img alt="logo-uca" src="img\\38d09c707475c7fd.jpg" width="200"></p>
+<p>En este laboratorio se introducirán dos conceptos claves de la programación en C: <strong>Funciones</strong> y <strong>punteros</strong></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Funciones" duration="0">
+        <h2 is-upgraded>¿Qué es una función?</h2>
+<p>Las funciones son fragmentos de código que se ejecutan solamente cuando son llamadas (o invocadas) desde alguna instrucción dentro del código. Una de las principales ventajas del uso de funciones es que las podemos reutilizar tantas veces como queramos. Es decir, escribimos las instrucciones una vez y las podemos llamar muchas veces. El uso de funciones obedece el principio de programación de dividir una tarea complicada en partes más fáciles de manejar.</p>
+<h2 is-upgraded>Sintaxis</h2>
+<p>Las funciones en C deben incluir las siguientes partes:</p>
+<ul>
+<li>El tipo de dato que retorna (int, float, double, bool, etc.).</li>
+<li>Un nombre que la identifique, de manera similar a una variable (sin espacios de por medio).</li>
+<li>Un par de paréntesis () y llaves {}.</li>
+<li>Opcionalmente, en el interior de los paréntesis podemos indicar <strong>parámetros</strong>. Estos son datos que enviamos a la función desde su llamada. Agregarlos o no dependerá de lo que necesite la lógica de la función.</li>
+<li>La instrucción <code>return</code> (dependiendo de la lógica de la función).</li>
+</ul>
+<pre><code language="language-c" class="language-c">//Partes de una función:
+//int es el tipo de dato que retornará
+//unaFuncion es el nombre de la función
+    //Dentro de los paréntesis:
+    //float es el tipo de dato que enviamos como parametro
+    //numeroDecimal es el nombre con el que identificaremos
+    //al valor del parametro dentro de la función
+    //No es necesario enviar datos del mismo tipo de la función,
+    //como en este ejemplo
+int unaFuncion(float numeroDecimal) {
+    //Instrucciones a ejecutar
+}
+</code></pre>
+<br><p><hr></p><br>
+<p>Las funciones pueden ser declaradas de dos maneras:<br><br><strong>Arriba de la función main</strong></p>
+<pre><code language="language-c" class="language-c">int unaFuncion(float numeroDecimal){
+    //Instrucciones a ejecutar
+}
+
+int main(){
+
+    return 0;
+}
+</code></pre>
+<p><strong>Abajo de la función main<br></strong> En este caso, debemos agregar un prototipo de la función antes del main.</p>
+<pre><code language="language-c" class="language-c">int unaFuncion(float numeroDecimal);
+
+int main(){
+    return 0;
+}
+
+int unaFuncion(float numeroDecimal){
+    //Instrucciones a ejecutar
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ejemplos de funciones" duration="0">
+        <p><strong>Ejemplo 1: Creando una función de tipo int</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+
+int sumarDosNumeros(int num1, int num2);
+
+int main(){
+    int a = 5, b = 10, resultado;
+
+    //sumarDosNumeros(a, b); Aquí se manda a llamar la variable,
+    //pero no lo almacena en ningún lado
+    resultado = sumarDosNumeros(a, b);
+    printf(&#34;El resultado de a y b es %d&#34;, resultado);
+
+    //Esta es una forma alternativa
+    //Aunque no la guardemos en una variable,
+    //el valor se retorna a la impresión en pantalla
+    printf(&#34;El resultado de a y b es %d&#34;, sumarDosNumeros(a, b));
+
+    return 0;
+}
+
+//Esta función recibe dos números enteros como parametros
+//y retorna un número entero
+int sumarDosNumeros(int num1, int num2){
+    //Los nombres de los parametros son independientes
+    //de los nombres de las variables que mandemos
+
+    int suma = num1 + num2;
+    return suma;//Se retorna el valor de la suma
+
+    //return num1 + num2; Esta es una forma alternativa que devuelve el resultado
+    //sin tener que guardarlo en una variable
+}
+</code></pre>
+<br><p><hr></p><br>
+<p><strong>Ejemplo 2: Creando una función de tipo void</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+
+//Esta función no recibe parametros
+//y tampoco retorna valores
+//Aunque no tenga parametros,se deben agregar los paréntesis
+void imprimirHolaMundo(){
+    printf(&#34;Hola Mundo!&#34;);
+    //Lo único que hace la función es imprimir el mensaje &#34;Hola Mundo!&#34;
+}
+
+int main(){
+
+    //Aunque la función no necesite parametros
+    //se necesitan los paréntesis en la llamada de la función
+    imprimirHolaMundo();
+    //Como no retorna nada, no hay necesidad de guardar en una variable
+
+    return 0;
+}
+</code></pre>
+<br><p><hr></p><br>
+<p><strong>Ejemplo 3: Creando una función void con parametros</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+
+//La función recibe parametros,
+//pero no es necesario que retorne algún valor
+void imprimirNumero(int numero){
+    printf(&#34;El numero es %d&#34;, numero);
+}
+
+int main(){
+    int numero = 2;
+
+    imprimirNumero(numero);
+
+    return 0;
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Punteros" duration="0">
+        <p>Los punteros son variables especiales que se utilizan para almacenar direcciones de valores, en vez de valores en sí.</p>
+<pre><code language="language-c" class="language-c">int numero = 5;//Creamos una variable que almacena el valor 5
+int *puntero = &amp;numero;
+//El puntero almacenara la dirección de dónde se almacena 
+//la variable numero, pero también podemos &#34;acceder&#34; al valor que se almacena ahí
+</code></pre>
+<p>Supongamos que la variable <code>numero</code> está almacenada en la dirección <strong>6</strong>. Entonces, si imprimieramos la dirección de <code>numero</code> (con &amp;numero), nos mostraría <strong>6</strong> (&amp; se usa para ingresar a la dirección en memoria).</p>
+<p>Si imprimimos solamente la variable <code>puntero</code> (sin *), nos mostraría <strong>6</strong>, porque lo que almacena es la dirección, no el valor. Al usar <code>*puntero</code>, podemos &#34;ver&#34; lo que se almacena en la dirección, que es el número <strong>5</strong>.</p><br><br>
+<p class="important"><em>Nota: Se recomienda investigar por cuenta propia, ya que se trata de un tema relativamente sencillo, pero confuso.</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Punteros en funciones" duration="0">
+        <p>Cuando usamos funciones y les enviamos variables como parametros, lo que estamos haciendo es crear una copia del valor y usar esa copia. Es posible enviar los mismos datos a través de sus direcciones; esto se llama &#34;enviar por referencia&#34;.</p>
+<p>A continuación, usaremos los mismos ejemplos de funciones, pero adaptados para usar punteros.</p>
+<p><strong>Ejemplo 1: Una función con datos por referencia</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+
+int sumarDosNumeros(int *num1, int *num2);
+
+int main(){
+    int a = 5, b = 10, resultado;
+    int *ptrA, *ptrB;
+    ptrA = &amp;a;//Aquí almacenamos la dirección de a en el punteroA
+    ptrB = &amp;b;//Hacemos lo mismo con el punteroB
+
+    //Alternativamente, podemos asignar los valores desde su declaración, así:
+    //int *ptrA = &amp;a, *ptrB = &amp;b;
+
+    resultado = sumarDosNumeros(ptrA, ptrB);
+    printf(&#34;El resultado de a y b es %d&#34;, resultado);
+
+    //Esta es una forma alternativa
+    //Podemos enviar la dirección de las variables sin almacenarlas en punteros
+    printf(&#34;El resultado de a y b es %d&#34;, sumarDosNumeros(&amp;a, &amp;b));
+
+    return 0;
+}
+
+//Esta función recibe dos punteros de tipo entero como parametros
+//y retorna un número entero
+int sumarDosNumeros(int *num1, int *num2){
+                                        
+    int suma = *num1 + *num2;
+    return suma;
+
+    //return *num1 + *num2; Esta es una forma alternativa que devuelve el resultado
+    //sin tener que guardarlo en una variable
+}
+</code></pre>
+<br><p><hr></p><br>
+<p><strong>Ejemplo 2: Función void con puntero</strong></p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+
+//La función recibe un puntero,
+//pero no es necesario que retorne algún valor
+void imprimirNumero(int *numero){
+    printf(&#34;El numero es %d&#34;, numero);
+}
+
+int main(){
+    int numero = 2;
+
+    imprimirNumero(&amp;numero);
+
+    return 0;
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ejercicios de laboratorio" duration="0">
+        <p><span class="bold-text">Usando los temas cubiertos en el laboratorio</span>, cree los programas correspondientes para los siguientes enunciados:</p>
+<ol type="1">
+<li>Una función que reciba una letra, la evalúe para determinar si es una vocal; si es una vocal, entonces debe escribir una palabra que inicie con dicha vocal. Por ejemplo: si la vocal es a, mostrar Avión; si es e, mostrar Estrella.<pre><code language="language-c" class="language-c"> void estaEsUnaFuncionDePrueba(char variableChar){
+     if(variableChar == &#39;a&#39;){
+         printf(&#34;Amanecer&#34;);
+     }
+ }
+</code></pre>
+</li>
+<li>Una función que reciba un número y devuelva su raíz (puede hacer uso de la función sqrt() de la librería math.h). Por ejemplo, si el dato que se envía es 16, el valor que se retorna debe ser 4.</li>
+<li>Una calculadora que reciba tres números y crear funciones que realicen las operaciones de suma, resta y multiplicación. Es obligatorio que las funciones trabajen con punteros.</li>
+<li>Un programa de conversión de grados. El usuario debe ingresar los grados y debe obtener el resultado. La conversión se debe realizar en una función o varias funciones según considere necesarias. El usuario debe escoger la conversión que desee:<ul>
+<li>Celsius a Fahrenheit</li>
+<li>Celsius a Kelvin</li>
+</ul>
+</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
