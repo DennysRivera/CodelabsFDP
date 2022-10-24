@@ -1,0 +1,221 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Fundamentos de Programación: Laboratorio 6</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="laboratorio-6-fdp-0222"
+                  title="Fundamentos de Programación: Laboratorio 6"
+                  environment="web"
+                  feedback-link="A link where users can go to provide feedback (e.g. the git repo or issue page)">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p class="image-container"><img alt="logo-uca" src="img\\38d09c707475c7fd.jpg" width="200"></p>
+<p>En este laboratorio se presentarán dos herramientas ampliamente utilizadas por programadores: <strong>Git</strong> y <strong>GitHub</strong></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="GitHub" duration="0">
+        <p class="image-container"><img alt="github-logo" src="img\\6344b1c3dc8daf77.png"></p>
+<h2 is-upgraded>¿Qué es GitHub?</h2>
+<p>GitHub es un sitio web y servicio en la nube que ayuda a los desarrolladores a almacenar y administrar su código, al igual que llevar un registro y control de cualquier cambio sobre el mismo. Para entender exactamente qué es GitHub, primero necesitas conocer los dos principios que lo conectan:</p>
+<ul>
+<li>Control de versiones</li>
+<li>Git</li>
+</ul>
+<h2 is-upgraded>¿Qué es Control de versión?</h2>
+<p>Un control de versiones ayuda a los desarrolladores a llevar un registro y administrar cualquier cambio en el código del proyecto en el que estén trabajando. A medida que crezca el proyecto, el control de versiones se vuelve esencial.</p>
+<p>Tomemos WordPress por ejemplo...</p>
+<p>En este punto, WordPress es un gran proyecto. Si un desarrollador importante deseara trabajar en una parte en específico de la base de datos del código de WordPress, no sería seguro o eficiente permitir que pueda editar directamente sobre el código fuente &#34;oficial&#34;. Por esto, la versión de control permite a los desarrollador trabajar de forma segura a través de una bifurcación (<strong><em>fork</em></strong>) y una fusión/unión (<strong><em>merge</em></strong>). Con la bifurcación (<em>fork</em>), un desarrollador duplica parte del código fuente (llamado <em>repositorio</em>). Este desarrollador luego puede, de forma segura, hacer cambios a esa parte del código, sin afectar al resto del proyecto. Después, una vez que el desarrollador logre que su parte del código funcione de forma apropiada, esta persona podría fusionar (<em>merge</em>) este código modificado al código fuente principal para hacerlo oficial.</p>
+<p>Todos estos cambios luego son registrados y pueden ser revertidos si es necesario.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Git" duration="0">
+        <p class="image-container"><img alt="git-logo" src="img\\361e48a16ba81e30.png" width="200"></p>
+<h2 is-upgraded>¿Qué es Git?</h2>
+<p>Git es un sistema de control de versiones de código abierto creado por Linus Torvalds en el 2005. Específicamente, Git es un sistema de control de versión distribuida, lo que quiere decir que la base del código entero y su historial se encuentran disponibles en la computadora de todo desarrollador, lo cual permite un fácil acceso a las bifurcaciones y fusiones. Según la encuesta entre los desarrolladores de Stack Overflow, más de 87% de los desarrolladores usan Git.</p>
+<h2 is-upgraded>Diferencia entre Git y GitHub</h2>
+<p>GitHub es una compañía sin fines de lucro que ofrece un servicio de hosting de repositorios almacenados en la nube. Básicamente, hace que sea más fácil para individuos y equipos usar Git como control de versiones y para colaboración. La interfaz de GitHub es bastante fácil de usar para cualquier desarrollador novato que quiera aprovechar las ventajas de Git. Sin GitHub, usar Git generalmente requiere de un poco más de conocimientos de tecnología y uso de líneas de comandos. GitHub es tan fácil de usar que incluso algunas personas usan GitHub para administrar otro tipo de proyectos (como escribir libros). Además de esto, cualquier persona puede inscribirse y alojar un repositorio de código público completamente gratuito, el cual hace que GitHub sea especialmente popular con proyectos de open source.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Parte práctica" duration="0">
+        <h2 is-upgraded>Primeros pasos</h2>
+<ul>
+<li>Lo primero que se debe hacer es crear una cuenta de usuario ingresando al siguiente enlace <a href="https://github.com/" target="_blank">https://github.com/</a>.</li>
+<li>Si bien es posible subir archivos directamente desde la página de GitHub, en muchas ocasiones se le pedirá que utilice Git directamente. Para poder utilizarlo, hay que descargarlo desde <a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>. <ul>
+<li>Una vez descargado, hay que configurar las variables globales de git para nombre de usuario:<br></li>
+</ul>
+<pre><code>git config --global user.name &#34;tu_usuario&#34;
+</code></pre>
+<ul>
+<li>Y para correo electrónico:<br></li>
+</ul>
+<pre><code>git config --global user.email tu@email.com
+</code></pre>
+<ul>
+<li>Tener en cuenta que estos comandos son para un usuario global (por ejemplo, para tu computadora personal). Para equipos compartidos se recomienda solo hacerlos locales. Para eso basta con eliminar <strong>–global</strong> del comando.</li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Crear repositorios" duration="0">
+        <p>Existen diferentes maneras de crear un repositorio:</p>
+<h2 is-upgraded>Desde GitHub</h2>
+<p>La primera opción es crearlo directamente desde GitHub, con el botón &#34;New repository&#34;. Luego de configurar las opciones del repositorio y haberlo creado, podemos comenzar a subir nuestros archivos.</p>
+<p>Esto es un repositorio remoto, pero nosotros debemos trabajar con un repositorio local. Para esto debemos &#34;conectarnos&#34; con el repositorio remoto, clonándolo. Debemos tener una carpeta en nuestra computadora en donde guardaremos el repositorio. Cuando la tengamos lista, debemos entrar a la carpeta desde la consola de git. Afortunadamente, hay una opción que permite abrir la consola de Git directamente en la carpeta; hay que hacer clic derecho en la carpeta y seleccionar <strong><em>Git Bash Here</em></strong>. Un repositorio se clona con el comando:</p>
+<pre><code>git clone &lt;url del repositorio remoto&gt;
+</code></pre>
+<h2 is-upgraded>Desde Git</h2>
+<p>La otra opción es crearlo a través de comandos desde la consola de git. Primero hay que crear una carpeta que nos servirá como repositorio, abrir su ubicación en la consola de Git y seguir estos pasos que nos provee GitHub:</p>
+<pre><code>git init
+git add README.md
+git commit -m &#34;first commit&#34;
+git branch -M main
+git remote add origin &lt;url del repositorio remoto&gt;
+git push -u origin main
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Comandos básicos de Git" duration="0">
+        <p><strong>init<br></strong> Este comando es para configurar que una carpeta se usará como repositorio para un proyecto.</p>
+<pre><code>git init
+</code></pre>
+<p><strong>clone<br></strong> Este comando se utiliza para clonar un repositorio existente al repositorio actual.</p>
+<pre><code>git clone
+</code></pre>
+<p><strong>add<br></strong> Este comando se usa para agregar un archivo o carpeta a la etapa de stage. Todo lo que esté en esta etapa se agregará al commit.</p>
+<pre><code>git add &#34;archivo&#34;
+</code></pre>
+<p>Alternativamente, se puede usar esta otra versión para agregar <strong>todos</strong> los documentos del proyecto actual a la etapa de stage.</p>
+<pre><code>git add .
+</code></pre>
+<p><strong>commit<br></strong> Este comando se utiliza para hacer un commit. Un commit es básicamente firmar/registrar los cambios realizados a un repositorio; esto incluye creación, adición, eliminación y modificación de archivos y carpetas. Se debe agregar un mensaje que resuma en qué consisten los cambios hechos. Por ejemplo: &#34;Adición de botones&#34;, &#34;Eliminación de función recursiva&#34;, &#34;Corrección de error en línea N&#34;.</p>
+<pre><code>git commit -m &#34;Mensaje del commit&#34; 
+</code></pre>
+<p><strong>remote add<br></strong> Este comando es para crear un repositorio remoto.</p>
+<pre><code>git remote add origin &lt;url del repositorio remoto&gt; 
+</code></pre>
+<p><strong>push<br></strong> Este comando se utiliza para enviar tus commits a tu repositorio remoto. Aunque se haya hecho un <code>git commit</code>, esos cambios permanecerán en tu repositorio local hasta que se suban al remoto.</p>
+<pre><code>git push origin master
+</code></pre>
+<p>&#34;master&#34; se refiere a la rama principal en la que se trabaja el proyecto. Esto se puede cambiar para trabajar en diferentes ramas. Después de haber hecho un push inicial, podremos acortar el comando a:</p>
+<pre><code>git push
+</code></pre>
+<p><strong>pull<br></strong> Este comando se utiliza para actualizar tu repositorio local con el remoto. Digamos que estás trabajando con un equipo; tú tienes un repositorio local y subes los cambios a un repositorio remoto. Si alguien de tu equipo modifica el código, es necesario actualizar tu repositorio local para tener la última versión del código y evitar conflictos de versiones. Tener en cuenta que no será posible hacer hacer si tu repositorio local no está actualizado, y forzarlo puede crear problemas con el código.</p>
+<pre><code>git pull
+</code></pre>
+<p><strong>checkout<br></strong> Este comando permite cambiar entre ramas existentes.</p>
+<pre><code>git checkout &lt;nombre de la rama&gt;
+</code></pre>
+<p><strong>checkout -b<br></strong> Similar al comando anterior, con la diferencia de que este crea una rama y cambia inmediatamente a esta.</p>
+<pre><code>git checkout -b &lt;nombre de la rama&gt; 
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Tarea de laboratorio" duration="0">
+        <p>Leer la sección sobre Strings en C y realizar los ejercicios correspondientes. Cuando se haya terminado, procede a subir los ejercicios a un repositorio remoto.</p>
+<p>Recuerda crear tu cuenta de GitHub y descargar Git.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Strings en C" duration="0">
+        <h2 is-upgraded>¿Qué es un String?</h2>
+<p>Un String uesuna cadena de caracteres. En C, estas cadenas se manejan como arrays de caracteres, lo que significa que cada caracter ocupará una posición dentro del array, por lo que cada cadena estará limitada a un número N de caracteres máximo. Los Strings se manejan enteramente como arrays, incluyendo su declaración:</p>
+<pre><code language="language-c" class="language-c">// Esto declara un string que solo almacenará
+// 10 caracteres como máximo
+char nombre[10];
+
+// Esto inicializa un string de tamaño 7,
+// porque siempre se agregar un valor nulo al final del array
+char heroe[] = &#34;Batman&#34;;
+
+// Esto inicializa un string de tamaño 10,
+// pero que ocupará las primeras 5 posiciones
+char villano[10] = &#34;Joker&#34;;
+</code></pre>
+<p>Lo anterior fue la manera sencilla y rápida de declarar un String, escribiendo todo el contenido entre comillas. También podemos declarar cada letra como un elemento individual. Si queremos trabajarlo de esta manera, hay que tener en cuenta que se debe agregar un valor nulo (&#39;\0&#39;) al final de cada array.</p>
+<p><strong>Nota:</strong> Siempre dejar una posición extra dentro de array para almacenar este valor nulo.</p>
+<pre><code language="language-c" class="language-c">// Esto es el equivalente a
+// char heroe[] = &#34;Batman&#34;;
+char heroe[] = {&#39;B&#39;,&#39;a&#39;,&#39;t&#39;,&#39;m&#39;,&#39;a&#39;,&#39;n&#39;,&#39;\0&#39;}
+</code></pre>
+<p>Puesto que los Strings son arrays, no podemos simplemente asignarles un nuevo valor; se puede a través de sus posiciones individuales, pero es más tardado. Para poder asignar nuevos valores a un String, podemos hacer uso de ciertas funciones para almacenar nuevos valores:</p>
+<p>La primera opción es usando <code>scanf("%s", array)</code>. Aunque es fácil de usar, la desventaja es que solamente almacenará el valor hasta que encuentre un espacio en blanco, un salto de línea, una tabulación o cualquier delimitación de texto.</p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    char nombre[20];
+    printf(&#34;Ingresa tu nombre: &#34;);
+    scanf(&#34;%s&#34;, nombre);
+    printf(&#34;Tu nombre es %s.&#34;, name);
+    return 0;
+}
+</code></pre>
+<p>Los Strings no necesitan el &amp; para agregar el valor a la variable.</p>
+<p>Además de <code>scanf()</code>, contamos con <code>fgets()</code> para leer y almacenar toda una línea de texto (siempre y cuando sea menor que el tamaño del aarray), y con <code>puts()</code> para imprimirlo.</p>
+<pre><code language="language-c" class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    char nombre[20];
+    printf(&#34;Ingresa tu nombre: &#34;);
+    fgets(name, sizeof(name), stdin);
+    puts(name);
+    return 0;
+}
+</code></pre>
+<p><strong>Nota:</strong> Dado que se tratan de variables, es posible pasar Strings como parámetros a funciones.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ejercicios de laboratorio" duration="0">
+        <p>Usando la información sobre Strings en C, cree los programas correspondientes para los siguientes enunciados:</p>
+<ol type="1">
+<li>El usuario puede ingresar un texto y una combinación de letras a buscar dentro del texto. Debe mostrar en pantalla un mensaje en caso de que la combinación de letras esté presente dentro del texto y un mensaje en caso de que no esté presente. Por ejemplo: Para el texto &#34;Lunes es el primer día de la semana&#34; y la combinación de letras &#34;primer&#34;, se debería mostrar un texto indicando que sí se encontró. Para este ejercicio se puede apoyar de la función <code>strstr()</code>, que evalúa substrings.</li>
+<li>El usuario puede ingresar una palabra y se debe evaluar si dicha palabra es un palíndromo. Los palíndromos son palabras o frases cuya primera letra es la misma que la última, la segunda es la misma que la penúltima, la tercera es la misma que la antepenúltima, y así sucesivamente. Por ejemplo: &#34;Somos&#34;, &#34;Reconocer&#34;, &#34;Oso&#34; son palíndromos. (Pista: debe evaluar letra por letra).</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
