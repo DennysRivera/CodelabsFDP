@@ -6,7 +6,7 @@ environments: Visual Studio Code
 status: Published
 feedback link: A link where users can go to provide feedback (e.g. the git repo or issue page)
 
-# Fundamentos de Programación: Laboratorio 6
+# Fundamentos de Programación: Laboratorio 7
 
 ## Introducción
 
